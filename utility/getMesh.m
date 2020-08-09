@@ -1,5 +1,5 @@
-function [xs,xi,Sd,Id] = getMesh(S,I,mu,beta,gamma)
-    [xs,xi] = meshgrid(0:0.1:1.1,-0.1:0.1:1);
+function [xs,xi,Sd,Id] = getMesh(mu,beta,gamma)
+    [xs,xi] = meshgrid(0:0.05:1.1,-0.1:0.05:1);
     [r,c] = size(xs);
     Sd = zeros(r,c);
     Id = zeros(r,c);
