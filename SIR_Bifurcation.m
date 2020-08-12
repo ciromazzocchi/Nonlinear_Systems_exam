@@ -8,43 +8,46 @@ addpath('./utility');
 beta = 0.4;
 mu = 0.2;
 
+lim1 = [0 beta-mu];
+lim2 = [beta-mu 1];
+
 %% Define variable
-R0 = sym('R0');
+gamma = sym('gamma');
 
 %% Define function
-Sne = @(R0) 1;
-Ine = @(R0) 0;
-Se = @(R0) 1/R0;
-Ie = @(R0) (mu/beta)*(R0-1);
+Sne = 1+0*gamma;
+Ine = 0*gamma;
+Se = (gamma+mu)/beta;
+Ie = (mu/beta)*((beta/(gamma + mu))-1);
 
 %% Plot S
 figure()
-fplot(R0,Se,[0.1 1],'Color','b');
+fplot(gamma,Se,lim1,'Color','b');
 hold on
-fplot(R0,Sne,[1 2],'Color','r');
+fplot(gamma,Sne,lim2,'Color','r');
 hold on
-fplot(R0,Sne,[0.1 1],'Color','r','LineStyle','--');
+fplot(gamma,Sne,lim1,'Color','r','LineStyle','--');
 hold on
-fplot(R0,Se,[1 2],'Color','b','LineStyle','--');
+fplot(gamma,Se,lim2,'Color','b','LineStyle','--');
 
 % Figure paramters
-xlabel('R0');
+xlabel('gamma');
 ylabel('S');
 title('Bifurcation - S');
 legend('endemic equilibrium', 'not endemic equilibrium');
 
 %% Plot I
 figure()
-fplot(R0,Ie,[0.1 1],'Color','b');
+fplot(gamma,Ie,lim1,'Color','b');
 hold on
-fplot(R0,Ine,[1 2],'Color','r');
+fplot(gamma,Ine,lim2,'Color','r');
 hold on
-fplot(R0,Ine,[0.1 1],'Color','r','LineStyle','--');
+fplot(gamma,Ine,lim1,'Color','r','LineStyle','--');
 hold on
-fplot(R0,Ie,[1 2],'Color','b','LineStyle','--');
+fplot(gamma,Ie,lim2,'Color','b','LineStyle','--');
 
 % Figure paramters
-xlabel('R0');
+xlabel('gamma');
 ylabel('I');
 title('Bifurcation - I');
 legend('endemic equilibrium', 'not endemic equilibrium');
