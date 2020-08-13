@@ -9,17 +9,19 @@ beta = 0.4;
 gamma = 0.3;
 mu = 0.2;
 
-xs = sym('x');
-xi = sym('y');
+x = sym('x');
+y = sym('y');
 xse = 1;
 xie = 0;
 
 %% Lyapunov function
-V = (xs-xse)^2+(xi)^2;
-Vd = 2*(xs-xse)*(mu-mu*xs-beta*xi*xs)+2*xi*(beta*xs*xi-xi*(gamma+mu));
+% I need to add 0.0001*x because MATLAB cannot recognise V=y as a function
+% of V(x,y)
+V = 0.0000001*x+y;
+Vd = (beta*x*y-y*(gamma+mu));
 
 %% Plot V
-plotLyapunov(V,[xs xi],[xse xie],"V",[0 1.5 -1 1]);
+plotLyapunov(V,[x y],[xse xie],"V",[0 1 0 1]);
 
 %% Plot Vd
-plotLyapunov(Vd,[xs xi],[xse xie],"Vd",[0 1.5 -1 1]);
+plotLyapunov(Vd,[x y],[xse xie],"Vd",[0 1 0 1]);
