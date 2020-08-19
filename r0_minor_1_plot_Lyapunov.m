@@ -15,9 +15,9 @@ xse = 1;
 xie = 0;
 
 %% Lyapunov function
-% I need to add 0.0001*x because MATLAB cannot recognise V=y as a function
+% I need to add 0.0001*x because MATLAB doesn't recognise V=y as a function
 % of V(x,y)
-V = 0.0000001*x+y;
+V = 0.0000001*x+y+0.1;
 Vd = (beta*x*y-y*(gamma+mu));
 
 %% Plot V

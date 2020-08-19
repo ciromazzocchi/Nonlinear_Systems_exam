@@ -16,10 +16,10 @@ mu = 0.2;
 % Print ROI
 fig = figure();
 hold on
-plot([0 1 0 0 0 1], [0 0 0 1 1 0], 'g');
+plot([0 1 0 0 0 1], [0 0 0 1 1 0], 'Color', 'g', 'LineWidth',1.0);
 
 % Plot vector field
-[xs,xi,Sd,Id] = getMesh(S,I,mu,beta,gamma);
+[xs,xi,Sd,Id] = getMesh(mu,beta,gamma);
 
 quiver(xs,xi,Sd,Id);
 
