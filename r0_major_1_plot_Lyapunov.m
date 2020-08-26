@@ -29,3 +29,6 @@ plotLyapunov(V,[xs xi],[xse xie],"V",[0 1 0 1]);
 
 %% Plot Vd
 plotLyapunov(Vd,[xs xi],[xse xie],"Vd",[0 1 0 1]);
+
+%% Clean
+rmpath('./utility');

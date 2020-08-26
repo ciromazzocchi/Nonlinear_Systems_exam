@@ -51,3 +51,6 @@ xlabel('gamma');
 ylabel('I');
 title('Bifurcation - I');
 legend('endemic equilibrium', 'not endemic equilibrium');
+
+%% Clean
+rmpath('./utility');

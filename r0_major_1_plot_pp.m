@@ -34,3 +34,6 @@ printTrajectory(fig,x0,odefun);
 % Figure paramters
 legendLabel = {'Region of interest','Vector field','Equilibrum point'};
 setFigure(fig,"Phase Portrait - R_0 > 1",legendLabel);
+
+%% Clean
+rmpath('./utility');

@@ -81,3 +81,6 @@ else
     legendLabel = {'Region of interest','Vector field','Crossing region','Sliding region','Equilibrum point'};
 end
 setFigure(fig,"Phase Portrait - R_0 < 1",legendLabel);
+
+%% Clean
+rmpath('./utility');
