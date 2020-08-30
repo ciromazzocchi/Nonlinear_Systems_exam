@@ -5,10 +5,11 @@ clc;
 addpath('./utility');
 
 %% Define parameter of simulation
+passo = 0.05;
 beta = 0.4;
 gamma = 1/14;
 mu = 0.2;
-delta = 1;
+delta = 0.15;
 R0 = beta/(gamma + mu);
 
 %% Print ROI
@@ -17,7 +18,7 @@ hold on
 plot([0 1 0 0 0 1], [0 0 0 1 1 0], 'g');
 
 %% Plot vector field
-[xs,xi] = meshgrid(0:0.05:1.1,-0.1:0.05:1);
+[xs,xi] = meshgrid(0:passo:1.1,-0.1:passo:1);
     [r,c] = size(xs);
     Sd = zeros(r,c);
     Id = zeros(r,c);
@@ -31,16 +32,15 @@ plot([0 1 0 0 0 1], [0 0 0 1 1 0], 'g');
 quiver(xs,xi,Sd,Id);
 
 %% Plot sigma
-
 if R0 < 1
     hold on
-    plot([0 1],[delta delta], 'r--');
+    plot([0 1],[delta delta], 'y--');
     hold off
 else
     hold on
-    plot([0 1/R0],[delta delta], 'r--');
+    plot([0 1/R0],[delta delta], 'y--');
     hold on
-    plot([1/R0 1],[delta delta], 'r');
+    plot([1/R0 1],[delta delta], 'y');
     hold off
 end
 
