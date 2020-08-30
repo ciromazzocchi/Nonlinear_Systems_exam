@@ -8,7 +8,7 @@ addpath('./utility');
 beta = 0.4;
 gamma = 1/14;
 mu = 0.2;
-delta = 0.1;
+delta = 1;
 R0 = beta/(gamma + mu);
 
 %% Print ROI
@@ -47,7 +47,7 @@ end
 %% Plot equilibrium point
 if R0 < 1
     roots = [1,0];
-elseif 1 > R0 && R0 > 1+delta*beta/mu 
+elseif 1 < R0 && R0 < 1+delta*beta/mu 
     roots = [1 0; 1/R0 (mu/beta)*(R0-1)];
 else
     roots = [1 0; 1-delta*((mu+gamma)/mu) delta];
