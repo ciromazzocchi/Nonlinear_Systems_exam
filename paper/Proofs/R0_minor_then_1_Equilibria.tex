@@ -1,0 +1,32 @@
+\begin{theorem}
+\label{th:R0_minor_then_1_Equilibria}
+Suppose that $R_0 < 1$, then system \ref{eq:sir_model_3} has one hyperbolic equilibrium point (not endemic equilibrium) that is locally asymptotically stable (node).
+\end{theorem}
+
+\begin{proof}
+For endemic equilibrium point happens that
+
+\begin{equation}
+    x_s^* = \frac{1}{R_0}
+\end{equation}
+
+By assumption
+
+\begin{equation}
+    R_0 < 1 \implies x_s^* > 1 \implies x_e^* \not\in \Omega
+\end{equation}
+
+For not endemic equilibrium point is obvious verify that $x_{ne}^* \in \Omega$.
+
+Given \ref{eq:eigenvalues_ne} and, remembering that by assumption $\mu > 0$ and $\gamma > 0$
+
+\begin{equation}
+    \lambda_1 = -\mu < 0
+\end{equation}
+
+\begin{equation}
+    \lambda_2 = \beta - \gamma - \mu = (\gamma + \mu)\left(\frac{\beta}{\gamma + \mu} - 1\right) = (\gamma + \mu)(R_0 - 1) < 0
+\end{equation}
+
+So not endemic equilibrium point has real negative eigenvelus, so is a node.
+\end{proof}
