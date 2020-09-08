@@ -4,12 +4,6 @@ clc;
 
 addpath('./utility');
 
-clear all;
-close all;
-clc;
-
-addpath('./utility');
-
 %% Define parameter of simulation
 beta = 0.4;
 gamma = 1/14;

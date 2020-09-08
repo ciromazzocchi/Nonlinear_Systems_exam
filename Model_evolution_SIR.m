@@ -3,22 +3,24 @@ close all;
 clc;
 
 addpath('./utility');
+addpath('./models');
 
 %% Define parameter of simulation
 beta = 0.4;
-gamma1 = 0.3;
-gamma2 = 1/14;
 mu = 0.2;
-
-S0 = 0.7;
+gamma_r0_minor_1 = 0.3;
+gamma_r0_major_1 = 1/14;
+S0 = 0.6;
 tf = 50;
+x0 = [S0, 1-S0];
 
 %% R0 < 1
-% Tracjectory
-odefun = @(t,x) SIR(t,x,mu,beta,gamma1);
-[t,x] = ode45(odefun,[0 tf],[S0,1-S0]);
-S = x(:,1);
-I = x(:,2);
+% Trajectory
+gamma = gamma_r0_minor_1;
+simout = sim('SIR_model');
+t = simout.x.Time;
+S = simout.x.Data(:,1);
+I = simout.x.Data(:,2);
 R = 1 - S - I;
 
 %Plot
@@ -36,10 +38,11 @@ ylim([0 1]);
 
 %% R0 > 1
 % Tracjectory
-odefun = @(t,x) SIR(t,x,mu,beta,gamma2);
-[t,x] = ode45(odefun,[0 tf],[S0,1-S0]);
-S = x(:,1);
-I = x(:,2);
+gamma = gamma_r0_major_1;
+simout = sim('SIR_model');
+t = simout.x.Time;
+S = simout.x.Data(:,1);
+I = simout.x.Data(:,2);
 R = 1 - S - I;
 
 %Plot
@@ -55,6 +58,6 @@ xlabel('t [day]');
 ylabel('S,I,R [%]');
 ylim([0 1]);
 
-
 %% Clean
 rmpath('./utility');
+rmpath('./models');

@@ -46,6 +46,5 @@ ylabel('I');
 title('Bifurcation - I');
 legend([p2 p3],'Not endemic equilibrium', 'Endemic equilibrium');
 
-
 %% Clean
 rmpath('./utility');
