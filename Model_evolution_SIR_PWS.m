@@ -8,17 +8,19 @@ addpath('./models');
 %% Define parameter of simulation
 beta = 0.4;
 mu = 0.2;
-gamma_case = [0.3, 1/14];
-titleLabel = ["Time evolution - R_0 < 1"; "Time evolution - R_0 > 1"];
-S0 = 0.6;
+delta = 0.1;
+S0 = 0.7;
 tf = 50;
-x0 = [S0, 1-S0];
+x0 = [S0; 1-S0];
+gamma_case = [0.3, 0.19, 1/14];
+titleLabel = ["Time evolution - R_0 < 1"; "Time evolution - 1+δ*(β/μ) > R_0 > 1";
+    "Time evolution - R_0 > 1+δ*(β/μ)"];
 
 %% Start
 for i=1:max(size(gamma_case))
     % Trajectory
     gamma = gamma_case(i);
-    simout = sim('SIR_model');
+    simout = sim('SIR_PWS_model');
     t = simout.x.Time;
     S = simout.x.Data(:,1);
     I = simout.x.Data(:,2);
