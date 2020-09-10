@@ -30,10 +30,10 @@ Notice that at discontinuity surface
     f^- = \begin{pmatrix} \mu - \left(\beta\delta + \mu\right) x_s \\ \beta\delta x_s - (\gamma + \mu)\delta \end{pmatrix} \neq \begin{pmatrix} \mu - \mu x_s \\ - (\gamma + \mu)\delta \end{pmatrix} = f^+
 \end{equation}
 
-So system \ref{eq:sir_model_pws_1} has a Degree of Discontiuity equal to 1.
+So System (\ref{eq:sir_model_pws_1}) has a Degree of Discontiuity equal to 1 (Filippov System).
 
 \subsection{Analysis of discontinuity surface}
-Given that region of interest is \ref{eq:roi}, discontinuity surface can be restricred to
+Given that region of interest is Equation (\ref{eq:roi}), discontinuity surface can be restricred to
 
 \begin{equation}
     \label{eq:switching_manifold}
@@ -82,7 +82,7 @@ Choosing
     \alpha = \frac{f^-_N}{f^-_N-f^+_N} = \frac{R_0x_s-1}{R_0x_s}
 \end{equation}
 
-and substituiting \ref{eq:switching_surface_alpha} in \ref{eq:switching_surface_vector_field_1}, remebering that along $\Sigma$ happens $x_i = \delta$,  it became
+and substituiting Equation (\ref{eq:switching_surface_alpha}) in Equation (\ref{eq:switching_surface_vector_field_1}), remebering that along $\Sigma$ happens $x_i = \delta$,  it became
 
 \begin{equation}
     \label{eq:switching_surface_vector_field_2}
@@ -97,7 +97,7 @@ First of calculate equilibria, will be useful enunciate some Lemma.
 
 \input{Proofs/PWS-Sliding_surface_equilibria}
 
-Now is possible calculate equilibria of system \ref{eq:sir_model_pws_1}. Differently from previous smmoth system analysis, for PWS system will be analyzed three cases:
+Now is possible calculate equilibria of System (\ref{eq:sir_model_pws_1}). Differently from previous smooth system analysis, for PWS system will be analyzed three cases:
 \begin{itemize}
     \item $R_0 < 1$
     \item $1 < R_0 < 1+\delta\frac{\beta}{\mu}$
@@ -111,8 +111,8 @@ Now is possible calculate equilibria of system \ref{eq:sir_model_pws_1}. Differe
 \input{Proofs/PWS-R0_case_3_equilibria}
 
 \subsection{Analisi delle biforcazioni}
-Add the discontiuity surface produce a new bifurcation for system \ref{eq:sir_model_pws_1}.
-For $R = 1$, it still has transcritical bifurcation shown in Figure \ref{fig:bifurcation_s} and Figure \ref{fig:bifurcation_i}.
+Add the discontiuity surface produce a new bifurcation for System (\ref{eq:sir_model_pws_1}).
+For $R_0 = 1$, it still has transcritical bifurcation shown in Figure \ref{fig:bifurcation_s} and Figure \ref{fig:bifurcation_i}.
 But for $ R = 1+\delta\frac{\beta}{\mu}$ it has a new type of bifurcation caused by contact of endemic equilibia with disconituity surface $\Sigma$.
 
 \input{Proofs/PWS-Bifurcation_Point}
@@ -158,15 +158,16 @@ In Figure \ref{fig:pws_bifurcation_s} and Figure \ref{fig:pws_bifurcation_i} are
 \end{itemize}
 
 \begin{figure}[h!]
+    \centering
     \label{fig:pws_bifurcation}
-    \begin{subfigure}{.5\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
         % include first image
         \includegraphics[width=\linewidth]{Figure/pws_bifurcation_s.png}  
         \caption{Bifurcation of S}
         \label{fig:pws_bifurcation_s}
     \end{subfigure}
-    \begin{subfigure}{.5\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Figure/pws_bifurcation_i.png}  
         \caption{Bifurcation of I}

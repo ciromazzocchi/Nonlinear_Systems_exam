@@ -7,7 +7,7 @@ Analysis of system can be divided in two section:
 
 \input{Proofs/Equilibrum_Point}
 
-First of all, willbe usefull calculate Jacobian matrix of system \ref{eq:sir_model_3}.
+First of all, willbe usefull calculate Jacobian matrix of System (\ref{eq:sir_model_3}).
 
 \begin{equation}
     J = 
@@ -46,7 +46,7 @@ While, in endemic equilibrium point eigenvalues are
     \lambda^2+\lambda\left(\frac{\beta\mu}{\gamma + \mu}\right)+\mu(\beta-\gamma-\mu) = 0 \implies \lambda_{1,2} = -\frac{\beta\mu}{2(\gamma + \mu)} \pm \frac{1}{2}\sqrt{\left(\frac{\beta\mu}{\gamma + \mu}\right)^2-4\mu(\beta-\gamma-\mu)}
 \end{equation}
 
-First of continue, will be usefull calculates divergence of system \ref{eq:sir_model_3}.
+First of continue, will be usefull calculates divergence of System (\ref{eq:sir_model_3}).
 
 \begin{equation}
 \label{eq:divergence}
@@ -163,7 +163,7 @@ First of continue, will be usefull calculates divergence of system \ref{eq:sir_m
 
 \subsection{Bifurcation analsys}
 
-First of all, it is important notice that, given \ref{eq:r0_definition} and given that $\beta$ and $\mu$ are intrinsic parameter that cannot be changed, and remembering that $R_0 = \frac{\beta}{\gamma + \mu}$, then
+First of all, it is important notice that, given Equation (\ref{eq:r0_definition}) and given that $\beta$ and $\mu$ are intrinsic parameter that cannot be changed, and remembering that $R_0 = \frac{\beta}{\gamma + \mu}$, then
 
 \begin{equation}
     R_0 = 1 \implies \gamma =  \beta - \mu
@@ -181,21 +181,22 @@ In Figure \ref{fig:bifurcation_s} and Figure \ref{fig:bifurcation_i} are raprese
 \end{itemize}
 
 \begin{figure}[h!]
+    \centering
     \label{fig:bifurcation}
-    \begin{subfigure}{.5\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
         % include first image
         \includegraphics[width=\linewidth]{Figure/bifurcation_s.png}  
         \caption{Bifurcation of S}
         \label{fig:bifurcation_s}
     \end{subfigure}
-    \begin{subfigure}{.5\textwidth}
+    \begin{subfigure}{\textwidth}
         \centering
         \includegraphics[width=\linewidth]{Figure/bifurcation_i.png}  
         \caption{Bifurcation of I}
         \label{fig:bifurcation_i}
     \end{subfigure}
-    \caption{Bifurcation with parameters $\beta = 0.4$, $\mu = 0.2$,}
+    \caption{Bifurcation with parameters $\beta = 0.4$, $\mu = 0.2$}
 \end{figure}
 
 \break
