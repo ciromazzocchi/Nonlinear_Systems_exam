@@ -1,0 +1,30 @@
+\begin{lemma}
+\label{th:sliding_equilibria}
+Sliding surface \ref{eq:switching_surface_vector_field_2} has an admissible equilibrium point at $x^*=(1-\delta\frac{\left(\gamma+\mu\right)}{\mu},\delta)$ if and only if $R_0 > 1+\delta\frac{\beta}{\mu}$. Moreover, pseudo-equilibrium point is locally asymptotically stable.
+\end{lemma}
+
+\begin{proof}
+\begin{equation}
+    f_\Sigma = 0 \implies x_s = 1-\delta\frac{\left(\gamma+\mu\right)}{\mu}
+\end{equation}
+
+Moreover, at $x^*=(1-\delta\frac{\left(\gamma+\mu\right)}{\mu},\delta)$ happnes:
+
+\begin{equation}
+    f^+_N(x^*)f^-_N(x^*) = (\gamma+\mu)^2\delta^2\left[1-R_0+\delta\frac{\beta}{\mu}\right]
+\end{equation}
+
+But, by assumption $\delta > 0$, $\gamma > 0$, $\mu > 0$, so
+\begin{equation}
+    f^+_N(x^*)f^-_N(x^*) < 0 \iff R_0 > 1+\delta\frac{\beta}{\mu}
+\end{equation}
+
+Consequntly $x^*$ is an admissible equilibrium point if and only if $R_0 > 1+\delta\frac{\beta}{\mu}$.
+
+In the end, eignevalue in $x^*$ is
+\begin{equation}
+    \lambda(x^*) = -\mu < 0
+\end{equation}
+
+So admissible pseudo-equilibrium point is locally asymptotically stable.
+\end{proof}
