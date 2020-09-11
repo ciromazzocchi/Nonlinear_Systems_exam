@@ -21,9 +21,9 @@ for i=1:max(size(gamma_case))
     % Trajectory
     gamma = gamma_case(i);
     simout = sim('SIR_PWS_model');
-    t = simout.x.Time;
-    S = simout.x.Data(:,1);
-    I = simout.x.Data(:,2);
+    t = simout.x.Time; t(1,:) = [];
+    S = simout.x.Data(:,1); S(1,:) = [];
+    I = simout.x.Data(:,2); I(1,:) = [];
     R = 1 - S - I;
 
     %Plot
@@ -31,10 +31,12 @@ for i=1:max(size(gamma_case))
     plot(t,S,'y'); hold on;
     plot(t,I,'r'); hold on;
     plot(t,R,'g'); hold on;
+    plot([t(1,1); t(end,1)],[delta; delta], ...
+        'Color','#EDB120','LineStyle','--');
 
     % Figure paramters
     title(titleLabel(i));
-    legend({'Susceptible','Infected','Removed'});
+    legend({'Susceptible','Infected','Removed','Discontinuty surface'});
     xlabel('t [day]');
     ylabel('S,I,R [%]');
     ylim([0 1]);
