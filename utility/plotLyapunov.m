@@ -1,4 +1,4 @@
-function plotLyapunov(fun,x,x_,labelFun,lim)
+function plotLyapunov(fun,x,x_,labelFun,R0label,lim)
     figure();
     scatter(x_(1),x_(2),'b','filled');
     hold on
@@ -6,7 +6,7 @@ function plotLyapunov(fun,x,x_,labelFun,lim)
     hold on;
     fcontour(fun,lim,'LevelStep',0.01);
 
-    title("Plot " + labelFun);
+    title("Plot " + labelFun + " - " + R0label);
     xlabel('S');
     ylabel('I');
     legend({"Equilibrum point", "Region of interest", "Lyapunov " + labelFun});
@@ -21,7 +21,7 @@ function plotLyapunov(fun,x,x_,labelFun,lim)
     hold on;
     fsurf(fun,lim);
 
-    title("Plot " + labelFun);
+    title("Plot " + labelFun + " - " + R0label);
     xlabel('S');
     ylabel('I');
     zlabel(labelFun);
