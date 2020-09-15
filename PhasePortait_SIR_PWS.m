@@ -31,14 +31,14 @@ for i=1:max(size(gamma_case))
     plotVectorField(mu,beta,gamma,delta,1);
 
     % Plot equilibrium point
+    plot([0 2]',[delta delta]', 'Color','#EDB120','LineStyle','--');
+    
     scatter(1,0,'b','filled');
     if R0 > 1 && R0 < 1+delta*beta/mu
         scatter((gamma+mu)/beta,mu/(gamma + mu) - mu/beta,'b','filled');
     elseif R0 > 1+delta*beta/mu
         scatter(1-delta*(mu+gamma)/mu,delta,'b','filled');
     end
-    
-    plot([0 2]',[delta delta]', 'Color','#EDB120','LineStyle','--');
 
     % Plot trajectory
     for j=1:n_simulation
@@ -68,7 +68,7 @@ for i=1:max(size(gamma_case))
     ylabel('I');
     xlim([0 1.1]);
     ylim([-0.1 1]);
-    legend({'Region of interest','Vector field','Equilibrum point','Discontinuity Surface'});
+    legend({'Region of interest','Vector field','Discontinuity Surface','Equilibrum point'});
 end
 
 %% Clean
