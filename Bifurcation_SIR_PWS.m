@@ -26,19 +26,19 @@ Ipe = delta;
 
 %% Plot S
 figure()
-[p1, p2, ~] = fplot_PWS(R0,[Sne Se Spe],lim1,["" "--" "."]);
-[~, ~, ~] = fplot_PWS(R0,[Sne Se Spe],lim2, ["" "" "."]);
-[~, ~, p9] = fplot_PWS(R0,[Sne Se Spe],lim3, ["" "." ""]);
+[p1, ~, ~] = fplot_PWS(R0,[Sne Se Spe],lim1,["" "--" "."]);
+[~, p5, ~] = fplot_PWS(R0,[Sne Se Spe],lim2, ["--" "" "."]);
+[~, ~, p9] = fplot_PWS(R0,[Sne Se Spe],lim3, ["--" "." ""]);
 
 % Figure paramters
 xlabel('R_0');
 ylabel('S');
 title('PWS Bifurcation - S');
-legend([p1 p2 p9],{'Not endemic equilibrium','Endemic equilibrium','Pseudo-equilibrium'});
+legend([p1 p5 p9],{'Not endemic equilibrium','Endemic equilibrium','Pseudo-equilibrium'});
 
 %% Plot S
 figure()
-[p1, p2, ~] = fplot_PWS(R0,[Ine Ie Ipe],lim1,["" "--" "."]);
+[p1, p5, ~] = fplot_PWS(R0,[Ine Ie Ipe],lim1,["" "--" "."]);
 [~, ~, ~] = fplot_PWS(R0,[Ine Ie Ipe],lim2, ["" "" "."]);
 [~, ~, p9] = fplot_PWS(R0,[Ine Ie Ipe],lim3, ["" "." ""]);
 
@@ -46,7 +46,7 @@ figure()
 xlabel('R_0');
 ylabel('I');
 title('PWS Bifurcation - I');
-legend([p1 p2 p9],{'Not endemic equilibrium','Endemic equilibrium','Pseudo-equilibrium'});
+legend([p1 p5 p9],{'Not endemic equilibrium','Endemic equilibrium','Pseudo-equilibrium'});
 
 %% Clean
 rmpath('./utility');
