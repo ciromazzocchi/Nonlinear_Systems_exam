@@ -8,7 +8,7 @@ addpath('./models');
 %% Paramter of simulation
 beta = 0.4;
 mu = 0.2;
-gamma = [0.3, 1/14];
+gamma_case = [0.3, 1/14];
 tf = 50;
 
 %% Constant of simulation
@@ -16,27 +16,26 @@ tf = 50;
 [n_simulation,~] = size(x0);
 
 %% Start
-for i=1:max(size(gamma))
-    R0 = beta/(gamma(i)+mu);
+for i=1:max(size(gamma_case))
+    gamma = gamma_case(i);
+    R0 = beta/(gamma+mu);
     
     % Print ROI
     figure();
     hold on
-    plot([0 1 0 0 0 1], [0 0 0 1 1 0], 'Color', 'g', 'LineWidth',1.0);
+    plotROI();
 
     % Plot vector field
-    [xs,xi,Sd,Id] = getMesh(mu,beta,gamma(i));
-
-    quiver(xs,xi,Sd,Id);
+    plotVectorField(mu,beta,gamma,0,0);
 
     % Plot equilibrium point
     scatter(1,0,'b','filled');
     if R0 > 1
-        scatter((gamma(i)+mu)/beta,mu/(gamma(i) + mu) - mu/beta,'b','filled');
+        scatter((gamma+mu)/beta,mu/(gamma + mu) - mu/beta,'b','filled');
     end
 
     % Plot trajectory
-    odefun = @(t,x) SIR(t,x,mu,beta,gamma(i));
+    odefun = @(t,x) SIR(t,x,mu,beta,gamma);
     printTrajectory(x0,odefun);
     hold off
 
