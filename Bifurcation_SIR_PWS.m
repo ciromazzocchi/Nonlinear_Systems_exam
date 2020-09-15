@@ -38,9 +38,9 @@ legend([p1 p5 p9],{'Not endemic equilibrium','Endemic equilibrium','Pseudo-equil
 
 %% Plot S
 figure()
-[p1, p5, ~] = fplot_PWS(R0,[Ine Ie Ipe],lim1,["" "--" "."]);
-[~, ~, ~] = fplot_PWS(R0,[Ine Ie Ipe],lim2, ["" "" "."]);
-[~, ~, p9] = fplot_PWS(R0,[Ine Ie Ipe],lim3, ["" "." ""]);
+[p1, ~, ~] = fplot_PWS(R0,[Ine Ie Ipe],lim1,["" "--" "."]);
+[~, p5, ~] = fplot_PWS(R0,[Ine Ie Ipe],lim2, ["--" "" "."]);
+[~, ~, p9] = fplot_PWS(R0,[Ine Ie Ipe],lim3, ["--" "." ""]);
 
 % Figure paramters
 xlabel('R_0');
