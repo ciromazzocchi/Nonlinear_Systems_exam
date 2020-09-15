@@ -12,8 +12,8 @@ gamma_case = [0.3, 1/14];
 tf = 50;
 
 %% Constant of simulation
-[S,I,x0] = getInitialPoint();
-[n_simulation,~] = size(x0);
+[S,I,x_0] = getInitialPoint();
+[n_simulation,~] = size(x_0);
 
 %% Start
 for i=1:max(size(gamma_case))
@@ -35,8 +35,25 @@ for i=1:max(size(gamma_case))
     end
 
     % Plot trajectory
-    odefun = @(t,x) SIR(t,x,mu,beta,gamma);
-    printTrajectory(x0,odefun);
+    for j=1:n_simulation
+        x0 = x_0(j,:)';
+        tf = 50;
+        flag = 1;
+        while flag
+            try
+                simout = sim('SIR_model');
+                flag = 0;
+            catch
+                tf = tf - 5;
+                if tf <= 0
+                    error("tf < 0");
+                end
+            end
+        end
+        S = simout.x.Data(:,1);
+        I = simout.x.Data(:,2);
+        plot(S,I,'b');
+    end
     hold off
 
     % Figure paramters
