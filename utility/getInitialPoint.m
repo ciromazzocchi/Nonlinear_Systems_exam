@@ -1,5 +1,5 @@
 function [S,I,x0] = getInitialPoint()
-passo = 0.21;
+passo = 0.11;
 sp = -0.1;
 ep = 1.3;
 
