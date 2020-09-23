@@ -1,25 +1,5 @@
-clear all;
-close all;
-clc;
-
-addpath('./utility');
-addpath('./models');
-
-%% Define parameter of simulation
-beta = 0.4;
-mu = 0.2;
-delta = 0.1;
-S0 = 0.7;
-tf = 50;
-x0 = [S0; 1-S0];
-gamma_case = [0.3, 0.19, 1/14];
-titleLabel = ["Time evolution - R_0 < 1"; "Time evolution - 1+δ*(β/μ) > R_0 > 1";
-    "Time evolution - R_0 > 1+δ*(β/μ)"];
-
-%% Start
-for i=1:max(size(gamma_case))
+function [] = Model_evolution_PWS(x0,tf,mu,beta,gamma,delta)    
     % Trajectory
-    gamma = gamma_case(i);
     simout = sim('SIR_PWS_model');
     t = simout.x.Time; t(1,:) = [];
     S = simout.x.Data(:,1); S(1,:) = [];
@@ -35,13 +15,23 @@ for i=1:max(size(gamma_case))
         'Color','#EDB120','LineStyle','--');
 
     % Figure paramters
-    title(titleLabel(i));
+    R0 = beta/(gamma+mu);
+
+    if R0 < 1
+        title("Time evolution - R_0 < 1");
+    elseif R0 == 1
+        title("Time evolution - R_0 = 1");
+    elseif R0 > 1 && R0 < 1+delta*beta/mu
+        title("Time evolution - 1+δ*(β/μ) > R_0 > 1");
+    elseif R0 == 1+delta*beta/mu
+        title("Time evolution - R_0 = 1+δ*(β/μ)");
+    else
+        title("Time evolution - R_0 > 1+δ*(β/μ)");
+    end
+    
     legend({'Susceptible','Infected','Removed','Discontinuty surface'});
     xlabel('t [day]');
     ylabel('S,I,R [%]');
     ylim([0 1]);
 end
 
-%% Clean
-rmpath('./utility');
-rmpath('./models');
