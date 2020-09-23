@@ -14,9 +14,8 @@ tf = 50;
 
 %% Start
 x0 = [S0, 1-S0];
-modelName = 'SIR_model';
 
-Model_evolution(modelName,x0,tf,mu,beta,gamma);
+Model_evolution(x0,tf,mu,beta,gamma);
 
 %% Clean
 rmpath('./utility');

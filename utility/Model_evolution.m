@@ -1,6 +1,6 @@
-function [] = Model_evolution(modelName,x0,tf,mu,beta,gamma)    
+function [] = Model_evolution(x0,tf,mu,beta,gamma)    
     % Trajectory
-    simout = sim(modelName);
+    simout = sim('SIR_model');
     t = simout.x.Time;
     S = simout.x.Data(:,1);
     I = simout.x.Data(:,2);
