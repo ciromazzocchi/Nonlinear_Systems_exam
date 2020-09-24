@@ -1,4 +1,8 @@
-clear all;
+%
+%   This script plots time evolution of PWS SIR model for R0 < 1
+%
+
+clear;
 close all;
 clc;
 

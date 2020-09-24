@@ -1,4 +1,8 @@
-clear all;
+%
+%   This script plots V and Vdot for a SIR model with R0 > 1
+%
+
+clear;
 close all;
 clc;
 

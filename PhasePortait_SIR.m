@@ -1,4 +1,9 @@
-clear all;
+%
+%   This script plots all three possible phase portait of SIR
+%   model varing gamma. 
+%
+
+clear;
 close all;
 clc;
 

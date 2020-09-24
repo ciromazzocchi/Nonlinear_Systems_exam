@@ -1,4 +1,9 @@
-clear all;
+%
+%   This script plots all three possible phase portait of PWS SIR
+%   model varing gamma. 
+%
+
+clear;
 close all;
 clc;
 
@@ -10,8 +15,6 @@ beta = 0.4;
 mu = 0.2;
 delta = 0.1;
 gamma_case = [0.3, 0.19, 1/14];
-titleLabel = ["Phase Portrait - R_0 < 1"; "Phase Portrait - 1+δ*(β/μ) > R_0 > 1";
-    "Phase Portrait - R_0 > 1+δ*(β/μ)"];
 
 %% Constant of simulation
 [S,I,x_0] = getInitialPoint();
@@ -63,7 +66,18 @@ for i=1:max(size(gamma_case))
     hold off
 
     % Figure paramters
-    title(titleLabel(i));
+    if R0 < 1
+        title("Phase Portrait - R_0 < 1");
+    elseif R0 == 1
+        title("Phase Portrait - R_0 = 1");
+    elseif R0 > 1 && R0 < 1+delta*beta/mu
+        title("Phase Portrait - 1+δ*(β/μ) > R_0 > 1");
+    elseif R0 == 1+delta*beta/mu
+        title("Phase Portrait - R_0 = 1+δ*(β/μ)");
+    else
+        title("Phase Portrait - R_0 > 1+δ*(β/μ)");
+    end
+
     xlabel('S');
     ylabel('I');
     xlim([0 1.1]);

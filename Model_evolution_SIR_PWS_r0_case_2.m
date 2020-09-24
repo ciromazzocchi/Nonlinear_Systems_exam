@@ -1,4 +1,8 @@
-clear all;
+%
+%   This script plots time evolution of PWS SIR model for 1 < R0 < 1+δ*(β/μ)
+%
+
+clear;
 close all;
 clc;
 

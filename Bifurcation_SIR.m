@@ -1,4 +1,8 @@
-clear all;
+%
+%   This script plots bifurcation graphs for a SIR model
+%
+
+clear;
 close all;
 clc;
 
